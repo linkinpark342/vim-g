@@ -55,7 +55,6 @@ fun! s:goo(ft, ...)
     endif
 
     let query = substitute(join(words, " "), '^\s*\(.\{-}\)\s*$', '\1', '')
-    let query = substitute(query, '"', '\\"', 'g')
 
     let goo_query = system(g:vim_g_perl_command . " -MURI::Escape " .
                             \"-e 'print uri_escape($ARGV[0])' " . shellescape(query, 1))
